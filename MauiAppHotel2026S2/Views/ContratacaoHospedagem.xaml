@@ -2,73 +2,85 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel2026S2.Views.ContratacaoHospedagem"
-             Title="ContratacaoHospedagem">
+             BackgroundColor="#F4F6FA"
+             Title="Hospedagem">
 
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="TextColor" Value="{StaticResource Gray500}" />
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="TextColor" Value="{StaticResource Gray500}" />
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="TextColor" Value="{StaticResource Gray500}" />
         </Style>
     </ContentPage.Resources>
-    
-    <VerticalStackLayout Padding="10"
-                         VerticalOptions="Center">
 
-        <Label Text="Cálculo da Diária"
-               FontFamily="Marhey"
-               TextColor="{StaticResource Primary}"
-               HorizontalTextAlignment="Center"
-               FontSize="35"
-               Margin="0, 50, 0, 50"/>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
 
-        <Border StrokeShape="RoundRectangle 10"
-                BackgroundColor="{StaticResource Gray600}">
-            
-            <VerticalStackLayout Padding="10">
-                <Grid ColumnDefinitions="*, *, *"
-                      RowDefinitions="Auto, Auto">
-                    <Label Grid.Row="0" Grid.Column="0" Text="Adultos:" />
-                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Value}"
-                           BindingContext="{x:Reference stp_adultos}"/>
-                    
-                    <Stepper x:Name="stp_adultos" Grid.Row="0" Grid.Column="2" 
-                             Minimum="1" Maximum="5"/>
+            <Label Text="Cálculo da Diária"
+                   FontFamily="Marhey"
+                   FontSize="32"
+                   TextColor="{StaticResource Primary}"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,30,0,10" />
 
-                    <Label Grid.Row="1" Grid.Column="0" Text="Crianças:" />
-                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Value}" 
-                           BindingContext="{x:Reference stp_criancas}" />
-                           
-                    <Stepper x:Name="stp_criancas" Grid.Row="1" Grid.Column="2" 
-                             Minimum="0" Maximum="5"/>
+            <Border BackgroundColor="White"
+                    Stroke="#E3E7ED"
+                    StrokeShape="RoundRectangle 16"
+                    Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.08" Offset="0,3" Radius="8" />
+                </Border.Shadow>
 
-                </Grid>
+                <VerticalStackLayout Spacing="15">
 
-                <Label Text="Selecione sua Acomodação:"
-                       HorizontalTextAlignment="Center"
-                       Margin="0, 20, 0, 5" />
-                <Picker x:Name="pck_quarto"/>
+                    <Grid ColumnDefinitions="*, *, *" RowDefinitions="Auto, Auto" RowSpacing="10">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Adultos:" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Value}"
+                               HorizontalTextAlignment="Center"
+                               BindingContext="{x:Reference stp_adultos}" />
+                        
+                        <Stepper x:Name="stp_adultos" Grid.Row="0" Grid.Column="2"
+                                 Minimum="1" Maximum="5" />
 
-                <Border StrokeShape="RoundRectangle 10"
-                        BackgroundColor="{StaticResource Gray500}"
-                        Margin="0, 20, 0, 20">
-                    
-                    <Grid RowDefinitions="Auto, Auto"
-                         ColumnDefinitions="*, *"
-                          RowSpacing="10" Padding="10">
-                        <Label Grid.Row="0" Grid.Column="0" Text="Data Check-in:" />
-                        <DatePicker x:Name="dtpck_checkin"  Grid.Row="0" Grid.Column="1" />
-
-                        <Label Grid.Row="1" Grid.Column="0" Text="Data Check-out:" />
-                        <DatePicker x:Name="dtpck_checkout" Grid.Row="1" Grid.Column="1" />
-
+                        <Label Grid.Row="1" Grid.Column="0" Text="Crianças:" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Value}"
+                               HorizontalTextAlignment="Center"
+                               BindingContext="{x:Reference stp_criancas}" />
+                        
+                        <Stepper x:Name="stp_criancas" Grid.Row="1" Grid.Column="2"
+                                 Minimum="0" Maximum="5" />
                     </Grid>
-                </Border>
 
-                <Button Text="Calcular!" />
+                    <BoxView HeightRequest="1" Color="#E3E7ED" />
 
-            </VerticalStackLayout>
-        </Border>
+                    <Label Text="Selecione sua acomodação:" FontAttributes="Bold" />
+                    <Picker x:Name="pck_quarto"/>
+
+                    <BoxView HeightRequest="1" Color="#E3E7ED" />
+
+                    <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto" RowSpacing="10">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Check-in:" />
+                        <DatePicker x:Name="dtpck_checkin" Grid.Row="0" Grid.Column="1" />
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Check-out:" />
+                        <DatePicker x:Name="dtpck_checkout" Grid.Row="1" Grid.Column="1" />
+                    </Grid>
+
+                    <Button Text="Calcular!"
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White"
+                            CornerRadius="12"
+                            HeightRequest="50"
+                            Margin="0,10,0,0" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
         
+    </ScrollView>
 
-    </VerticalStackLayout>
-    
 </ContentPage>
