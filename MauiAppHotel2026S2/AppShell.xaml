@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiAppHotel2026S2.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiAppHotel2026S2"
+    xmlns:Views="clr-namespace:MauiAppHotel2026S2.Views"
+    Shell.NavBarIsVisible="False"
+    Title="MauiAppHotel2026S2">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate Views:ContratacaoHospedagem}"
+        Route="MainPage" />
+
+</Shell>
