@@ -2,40 +2,33 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel2026S2.Views.ContratacaoHospedagem"
-             BackgroundColor="#F4F6FA"
+             BackgroundColor="{StaticResource CorFundo}"
              Title="Hospedagem">
 
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="VerticalTextAlignment" Value="Center" />
-            <Setter Property="TextColor" Value="{StaticResource Gray500}" />
+            <Setter Property="TextColor" Value="{StaticResource CorTexto}" />
         </Style>
         <Style TargetType="Picker">
-            <Setter Property="TextColor" Value="{StaticResource Gray500}" />
+            <Setter Property="TextColor" Value="{StaticResource CorTexto}" />
         </Style>
         <Style TargetType="DatePicker">
-            <Setter Property="TextColor" Value="{StaticResource Gray500}" />
+            <Setter Property="TextColor" Value="{StaticResource CorTexto}" />
         </Style>
     </ContentPage.Resources>
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
-            <Label Text="Cálculo da Diária"
-                   FontFamily="Marhey"
-                   FontSize="32"
-                   TextColor="{StaticResource Primary}"
-                   HorizontalTextAlignment="Center"
-                   Margin="0,30,0,10" />
+            <VerticalStackLayout Margin="0,30,0,0" Spacing="2">
+                <Label Text="Cálculo da Diária" Style="{StaticResource TituloPagina}" />
+                <Label Text="Hotel Laguna"
+                       TextColor="{StaticResource CorTextoSuave}"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
 
-            <Border BackgroundColor="White"
-                    Stroke="#E3E7ED"
-                    StrokeShape="RoundRectangle 16"
-                    Padding="20">
-                <Border.Shadow>
-                    <Shadow Brush="Black" Opacity="0.08" Offset="0,3" Radius="8" />
-                </Border.Shadow>
-
+            <Border Style="{StaticResource Cartao}">
                 <VerticalStackLayout Spacing="15">
 
                     <Grid ColumnDefinitions="*, *, *" RowDefinitions="Auto, Auto" RowSpacing="10">
@@ -43,7 +36,6 @@
                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding Value}"
                                HorizontalTextAlignment="Center"
                                BindingContext="{x:Reference stp_adultos}" />
-                        
                         <Stepper x:Name="stp_adultos" Grid.Row="0" Grid.Column="2"
                                  Minimum="1" Maximum="5" />
 
@@ -51,36 +43,36 @@
                         <Label Grid.Row="1" Grid.Column="1" Text="{Binding Value}"
                                HorizontalTextAlignment="Center"
                                BindingContext="{x:Reference stp_criancas}" />
-                        
                         <Stepper x:Name="stp_criancas" Grid.Row="1" Grid.Column="2"
                                  Minimum="0" Maximum="5" />
                     </Grid>
 
-                    <BoxView HeightRequest="1" Color="#E3E7ED" />
+                    <BoxView Style="{StaticResource Linha}" />
 
                     <Label Text="Selecione sua acomodação:" FontAttributes="Bold" />
-                    <Picker x:Name="pck_quarto"/>
+                    <Picker x:Name="pck_quarto"
+                            ItemDisplayBinding="{Binding Nome}"
+                            Title="Selecione sua suíte..." />
 
-                    <BoxView HeightRequest="1" Color="#E3E7ED" />
+                    <BoxView Style="{StaticResource Linha}" />
 
                     <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto" RowSpacing="10">
                         <Label Grid.Row="0" Grid.Column="0" Text="Check-in:" />
-                        <DatePicker x:Name="dtpck_checkin" Grid.Row="0" Grid.Column="1" />
+                        <DatePicker x:Name="dtpck_checkin" DateSelected="dtpck_checkin_DateSelected"
+                                    Grid.Row="0" Grid.Column="1" />
 
                         <Label Grid.Row="1" Grid.Column="0" Text="Check-out:" />
                         <DatePicker x:Name="dtpck_checkout" Grid.Row="1" Grid.Column="1" />
                     </Grid>
 
                     <Button Text="Calcular!"
-                            BackgroundColor="{StaticResource Primary}"
-                            TextColor="White"
-                            CornerRadius="12"
-                            HeightRequest="50"
-                            Margin="0,10,0,0" />
+                            Style="{StaticResource BotaoPrincipal}"
+                            Margin="0,10,0,0"
+                            Clicked="Button_Clicked" />
+
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>
-        
     </ScrollView>
 
 </ContentPage>

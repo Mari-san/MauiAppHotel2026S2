@@ -9,6 +9,43 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Color x:Key="CorFundo">#F4F6FA</Color>
+            <Color x:Key="CorBorda">#E3E7ED</Color>
+            <Color x:Key="CorTexto">#3D4451</Color>
+            <Color x:Key="CorTextoSuave">#8A93A0</Color>
+
+            <Style x:Key="TituloPagina" TargetType="Label">
+                <Setter Property="FontFamily" Value="Marhey" />
+                <Setter Property="FontSize" Value="32" />
+                <Setter Property="TextColor" Value="{StaticResource Primary}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="Cartao" TargetType="Border">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="Stroke" Value="{StaticResource CorBorda}" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 16" />
+                <Setter Property="Padding" Value="20" />
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <Shadow Brush="Black" Opacity="0.06" Offset="0,2" Radius="6" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="Linha" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="Color" Value="{StaticResource CorBorda}" />
+            </Style>
+
+            <Style x:Key="BotaoPrincipal" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

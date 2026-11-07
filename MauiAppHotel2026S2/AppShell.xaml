@@ -6,9 +6,11 @@
     xmlns:local="clr-namespace:MauiAppHotel2026S2"
     xmlns:Views="clr-namespace:MauiAppHotel2026S2.Views"
     Shell.NavBarIsVisible="False"
+    Shell.TabBarBackgroundColor="White"
+    Shell.TabBarTitleColor="{StaticResource Primary}"
+    Shell.TabBarUnselectedColor="{StaticResource CorTextoSuave}"
     Title="Hotel Laguna">
 
- 
     <TabBar>
         <ShellContent
             Title="Hospedagem"
